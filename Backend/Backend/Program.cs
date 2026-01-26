@@ -42,6 +42,7 @@ namespace Backend
                         )
                     };
                 });
+            builder.Services.AddScoped<DocumentService>();
 
             var app = builder.Build();
 

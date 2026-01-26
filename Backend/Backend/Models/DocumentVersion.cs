@@ -14,7 +14,7 @@ namespace Backend.Models
         public string FilePath { get; set; }
 
         public int DocId { get; set; }
-        public Documents Document { get; set; }
+        public Document Document { get; set; }
 
         public int CreatedById { get; set; }
         public User CreatedBy { get; set; }
