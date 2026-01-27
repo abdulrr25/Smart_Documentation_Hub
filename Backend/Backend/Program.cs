@@ -1,10 +1,13 @@
 
+using System.Text;
 using Backend.Data;
+using Backend.Middleware;
 using Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using SmartDocs.API.Services;
+
 
 namespace Backend
 {
@@ -46,6 +49,10 @@ namespace Backend
 
             builder.Services.AddScoped<DocumentTextExtractionService>();
             builder.Services.AddScoped<DocumentVersionService>();
+            builder.Services.AddScoped<InlineCommentService>();
+            builder.Services.AddScoped<SearchService>();
+            builder.Services.AddScoped<ActivityLogService>();
+
 
             var app = builder.Build();
 
@@ -59,6 +66,7 @@ namespace Backend
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseAuthorization();
 
             app.MapControllers();

@@ -52,6 +52,19 @@ namespace Backend.Services
             _context.DocumentVersions.Add(version);
             _context.SaveChanges();
 
+            // ACTIVITY LOGGING 
+            var log = new ActivityLog
+            {
+                UserId = userId,
+                Action = "Document Version Uploaded",
+                EntityName = "DocumentVersion",
+                EntityId = version.VersionId,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.ActivityLogs.Add(log);
+            _context.SaveChanges();
+
             return version;
         }
     }
