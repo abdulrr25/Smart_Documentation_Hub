@@ -1,4 +1,4 @@
-using Backend.Data;
+﻿using Backend.Data;
 using Backend.DTOs;
 using Backend.Models;
 using Backend.Services;
@@ -41,6 +41,39 @@ namespace Backend.Controllers
                 Email = user.Email
             });
         }
+
+        [HttpPost("register")]
+        public IActionResult Register(RegisterRequestDto dto)
+        {
+            // Basic validation
+            if (string.IsNullOrWhiteSpace(dto.Email) ||
+                string.IsNullOrWhiteSpace(dto.Password) ||
+                string.IsNullOrWhiteSpace(dto.Name))
+            {
+                return BadRequest("All fields are required");
+            }
+
+            // Check if user already exists
+            var existingUser = _context.Users.FirstOrDefault(u => u.Email == dto.Email);
+            if (existingUser != null)
+                return BadRequest("User already exists");
+
+            // 🔐 Hash password using BCrypt
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+            var user = new User
+            {
+                Name = dto.Name,
+                Email = dto.Email,
+                Password = hashedPassword
+            };
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return Ok("User registered successfully");
+        }
+
 
         [HttpPost("forgot-password")]
         public IActionResult ForgotPassword(ForgotPasswordDto dto)
