@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+📘 Smart Documentation Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A real-time collaborative documentation platform built using React.js, ASP.NET Core Web API, and MySQL, supporting secure authentication, document versioning, backend text extraction, and inline commenting.
 
-## Available Scripts
+🚀 Features
 
-In the project directory, you can run:
+🔐 JWT Authentication (Login, Forgot & Reset Password)
 
-### `npm start`
+📄 Document Metadata Management
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📤 File Upload (PDF, DOCX, TXT)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🧠 Backend Text Extraction & Normalization
 
-### `npm test`
+🕒 Document Versioning
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+💬 Inline Comments using Text Indexing
 
-### `npm run build`
+⚡ Real-time Collaboration (SignalR)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+👤 User-based Access Control
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🛠 Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Frontend
 
-### `npm run eject`
+React.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Axios
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+SignalR Client
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Rich Text Editor (Quill / Slate)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Backend
 
-## Learn More
+ASP.NET Core Web API (.NET 8)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Entity Framework Core
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+SignalR
 
-### Code Splitting
+JWT + BCrypt
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Database
 
-### Analyzing the Bundle Size
+MySQL
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🏗 Architecture
+React Frontend
+     ↓
+ASP.NET Core Web API
+     ↓
+Service Layer
+     ↓
+EF Core
+     ↓
+MySQL
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Real-time updates are handled using SignalR.
 
-### Advanced Configuration
+🔁 Workflow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+User logs in (JWT issued)
 
-### Deployment
+Document metadata created
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+File uploaded → text extracted on backend
 
-### `npm run build` fails to minify
+Document version created
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Inline comments mapped via text indices
+
+Real-time collaboration enabled
+
+🔐 Security
+
+JWT-based authorization
+
+Password hashing using BCrypt
+
+Secure, token-based password reset
+
+Ownership enforced at backend
+
+📂 Project Structure
+frontend/   → React app
+backend/    → ASP.NET Core API
+
+🎓 Highlights
+
+Clean architecture with DTOs & Services
+
+Backend-driven validation & security
+
+Real-time collaboration support
+
+Designed for scalability and maintainability
+
+📌 Future Enhancements
+
+Role-based access
+
+Cloud file storage
+
+AI-based document insights
+
+Advanced collaboration tools
+
+📄 License
+
+Academic / Educational Use
