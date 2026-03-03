@@ -1,113 +1,150 @@
-📘 Smart Documentation Hub
+# 📘 Smart Documentation Hub
 
-A real-time collaborative documentation platform built using React.js, ASP.NET Core Web API, and MySQL, supporting secure authentication, document versioning, backend text extraction, and inline commenting.
+A real-time collaborative documentation platform built using **React.js**, **ASP.NET Core Web API (.NET 8)**, and **MySQL**.  
+The system supports secure authentication, document versioning, backend text extraction, inline commenting, and real-time collaboration.
 
-🚀 Features
+---
 
-🔐 JWT Authentication (Login, Forgot & Reset Password)
+## 🚀 Features
 
-📄 Document Metadata Management
+- 🔐 JWT Authentication (Login, Forgot Password, Reset Password)
+- 📄 Document Metadata Management
+- 📤 File Upload Support (PDF, DOCX, TXT)
+- 🧠 Backend Text Extraction & Normalization
+- 🕒 Document Versioning
+- 💬 Inline Comments using Text Indexing
+- ⚡ Real-time Collaboration using SignalR
+- 👤 User-based Access Control
 
-📤 File Upload (PDF, DOCX, TXT)
+---
 
-🧠 Backend Text Extraction & Normalization
+## 🛠 Tech Stack
 
-🕒 Document Versioning
+### Frontend
+- React.js
+- Axios
+- SignalR Client
+- Rich Text Editor (Quill / Slate)
 
-💬 Inline Comments using Text Indexing
+### Backend
+- ASP.NET Core Web API (.NET 8)
+- Entity Framework Core
+- SignalR
+- JWT Authentication
+- BCrypt Password Hashing
 
-⚡ Real-time Collaboration (SignalR)
+### Database
+- MySQL
 
-👤 User-based Access Control
+---
 
-🛠 Tech Stack
+## 🏗 System Architecture
 
-Frontend
-
-React.js
-
-Axios
-
-SignalR Client
-
-Rich Text Editor (Quill / Slate)
-
-Backend
-
-ASP.NET Core Web API (.NET 8)
-
-Entity Framework Core
-
-SignalR
-
-JWT + BCrypt
-
-Database
-
-MySQL
-
-🏗 Architecture
+```
 React Frontend
-     ↓
+        ↓
 ASP.NET Core Web API
-     ↓
+        ↓
 Service Layer
-     ↓
-EF Core
-     ↓
-MySQL
+        ↓
+Entity Framework Core
+        ↓
+MySQL Database
+```
 
+Real-time updates and collaboration are handled using **SignalR**.
 
-Real-time updates are handled using SignalR.
+---
 
-🔁 Workflow
+## 🔁 Application Workflow
 
-User logs in (JWT issued)
+1. User logs in → JWT token is issued.
+2. User creates document metadata.
+3. File is uploaded → Backend extracts and normalizes text.
+4. Document version is created and stored.
+5. Inline comments are mapped using text indices.
+6. Real-time collaboration is enabled via SignalR.
 
-Document metadata created
+---
 
-File uploaded → text extracted on backend
+## 🔐 Security Implementation
 
-Document version created
+- JWT-based authentication & authorization
+- BCrypt password hashing
+- Secure token-based password reset flow
+- Backend-enforced ownership validation
+- Protected API routes
 
-Inline comments mapped via text indices
+---
 
-Real-time collaboration enabled
+## 📂 Project Structure
 
-🔐 Security
+```
+Smart-Documentation-Hub/
+│
+├── frontend/      # React.js Application
+└── backend/       # ASP.NET Core Web API
+```
 
-JWT-based authorization
+---
 
-Password hashing using BCrypt
+## 🎓 Technical Highlights
 
-Secure, token-based password reset
+- Clean Architecture with DTOs and Service Layer separation
+- Backend-driven validation and security enforcement
+- Real-time collaboration using SignalR
+- Version-controlled document storage
+- Designed for scalability and maintainability
 
-Ownership enforced at backend
+---
 
-📂 Project Structure
-frontend/   → React app
-backend/    → ASP.NET Core API
+## 📌 Future Enhancements
 
-🎓 Highlights
+- Role-Based Access Control (RBAC)
+- Cloud-based file storage (AWS / Azure)
+- AI-based document insights and summarization
+- Advanced collaboration tools (mentions, notifications)
+- Activity logs and audit trails
 
-Clean architecture with DTOs & Services
+---
 
-Backend-driven validation & security
+## ⚙️ Setup Instructions
 
-Real-time collaboration support
+### 1️⃣ Clone Repository
 
-Designed for scalability and maintainability
+```bash
+git clone https://github.com/your-username/Smart_Documentation_Hub.git
+cd Smart_Documentation_Hub
+```
 
-📌 Future Enhancements
+---
 
-Role-based access
+### 2️⃣ Backend Setup
 
-Cloud file storage
+```bash
+cd backend
+dotnet restore
+dotnet ef database update
+dotnet run
+```
 
-AI-based document insights
+Update `appsettings.json` with your MySQL connection string before running.
 
-Advanced collaboration tools
+---
 
-📄 License
+### 3️⃣ Frontend Setup
 
-Academic / Educational Use
+```bash
+cd frontend
+npm install
+npm start
+```
+
+---
+
+## 📄 License
+
+This project is intended for **Academic / Educational Use**.
+
+---
+
