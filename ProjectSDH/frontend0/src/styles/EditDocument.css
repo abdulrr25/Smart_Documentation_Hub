@@ -1,0 +1,273 @@
+/* ===============================
+   GLOBAL UI REFINEMENT
+================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #eef2f7;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+.edit-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.edit-header {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 18px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-header h2 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.edit-header small {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* ===============================
+   BODY
+================================ */
+.edit-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ===============================
+   TWO COLUMN LAYOUT
+================================ */
+.editor-layout {
+  display: flex;
+  gap: 28px;
+  padding: 28px;
+  height: 100%;
+}
+
+/* ===============================
+   EDITOR PANEL
+================================ */
+.editor-panel {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+/* ===============================
+   TEXTAREA STYLE (EDIT MODE)
+================================ */
+.editor-panel textarea {
+  width: 100%;
+  max-width: 900px;
+  min-height: calc(100vh - 270px);
+
+  padding: 42px 48px;
+  background: #ffffff;
+
+  border-radius: 18px;
+  border: 1px solid #e2e8ff;
+
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #111827;
+
+  resize: none;
+  outline: none;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   VIEW MODE DOCUMENT
+================================ */
+.document-view {
+  width: 100%;
+  max-width: 900px;
+  min-height: calc(100vh - 270px);
+
+  padding: 42px 48px;
+  background: #ffffff;
+
+  border-radius: 18px;
+  border: 1px solid #e2e8ff;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/* ===============================
+   COMMENTS PANEL (EDIT MODE ONLY)
+================================ */
+.comments-panel {
+  flex: 1;
+  max-width: 340px;
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  height: fit-content;
+
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+.comments-panel h4 {
+  margin: 0 0 16px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.comment-box {
+  background: #f4f7ff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+
+  border-left: 4px solid #3b82f6;
+}
+
+.comment-box strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #1e3a8a;
+}
+
+/* ===============================
+   COMMENT INPUT
+================================ */
+.comments-panel textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  border-radius: 12px;
+  border: 1px solid #dbe3ff;
+
+  font-size: 14px;
+  resize: none;
+  outline: none;
+
+  transition: border 0.2s ease;
+}
+
+.comments-panel textarea:focus {
+  border: 1px solid #3b82f6;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.edit-footer {
+  background: white;
+  padding: 16px 30px;
+  border-top: 1px solid #e6ecff;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===============================
+   BUTTON SYSTEM
+================================ */
+button {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  transition: all 0.25s ease;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* PRIMARY BUTTONS */
+.save-btn,
+.add-comment-btn,
+.upload-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-size: 14px;
+
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4);
+}
+
+.save-btn:hover,
+.add-comment-btn:hover,
+.upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.5);
+}
+
+.save-btn:disabled {
+  background: linear-gradient(135deg, #93c5fd, #60a5fa);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* SECONDARY BUTTONS */
+.back-btn,
+.view-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1d4ed8;
+  border: 1px solid rgba(29, 78, 216, 0.4);
+  padding: 10px 18px;
+  font-size: 14px;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover,
+.view-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+}
+
+/* ===============================
+   INLINE HIGHLIGHT + TOOLTIP
+================================ */
+.highlight {
+  background-color: #fff3a3;
+  border-radius: 4px;
+  padding: 2px 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.highlight:hover {
+  background-color: #ffe066;
+}
+
+.active-comment {
+  box-shadow: 0 0 0 3px #3b82f6;
+  transition: box-shadow 0.3s ease;
+}
+
+.active-highlight {
+  box-shadow: 0 0 0 3px #f59e0b;
+  transition: box-shadow 0.3s ease;
+}

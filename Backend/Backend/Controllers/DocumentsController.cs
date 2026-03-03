@@ -19,27 +19,33 @@ namespace Backend.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateDocumentDto dto)
+        [Consumes("multipart/form-data")]
+        public IActionResult Create([FromForm] UploadDocumentDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.DocumentName))
                 return BadRequest("Document name is required");
+
+            if (dto.File == null || dto.File.Length == 0)
+                return BadRequest("File is required");
 
             int userId = int.Parse(
                 User.FindFirstValue(ClaimTypes.NameIdentifier)
             );
 
-            var document = _documentService.CreateDocument(dto, userId);
+            var document = _documentService.CreateDocumentWithFile(dto, userId);
 
-            return Ok(new DocumentResponseDto
+            return Ok(new
             {
-                DocId = document.DocId,
-                DocumentName = document.DocumentName,
-                DocumentDescription = document.DocumentDescription,
-                DocumentType = document.DocumentType,
-                CreatedOn = document.CreatedOn
+                document.DocId,
+                document.DocumentName,
+                document.DocumentType,
+                document.CreatedOn
             });
         }
 
+        // ===============================
+        // GET USER DOCUMENTS
+        // ===============================
         [HttpGet]
         public IActionResult GetMyDocuments()
         {
@@ -60,6 +66,9 @@ namespace Backend.Controllers
             return Ok(documents);
         }
 
+        // ===============================
+        // GET DOCUMENT BY ID
+        // ===============================
         [HttpGet("{docId}")]
         public IActionResult GetById(int docId)
         {
